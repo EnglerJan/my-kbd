@@ -14,10 +14,10 @@
 
 (defsrc
   esc   f1   f2   f3   f4   f5   f6   f7   f8        f10  f11  f12  ins  del
-  grv   1    2    3    4    5    6    7    8    9    0    -    =        bspc nlck /   kp* kp-
+  grv   1    2    3    4    5    6    7    8    9    0    -    =        bspc nlck kp/   kp* kp-
   tab   q    w    e    r    t    y    u    i    o    p    [    ]         ret  kp7 kp8 kp9 kp+
-  caps  a    s    d    f    g    h    j    k    l    ;    '    \              kp4 kp5 kp6
-  lsft  102d z    x    c    v    b    n    m    ,    .    /    rsft           kp1 kp2 kp3 ret
+  caps  a    s    d    f    g    h    j    k    l    ;    '    \             kp4 kp5 kp6
+  lsft  102d z    x    c    v    b    n    m    ,    .    /   rsft           kp1 kp2 kp3 ret
   lctl       lmet lalt      spc                 ralt rctl left up   down      0       kp.
 )
 
@@ -31,32 +31,36 @@
 	ear (layer-toggle exper_arrows)
 	num (layer-toggle numbers)
 	cz  (layer-toggle czech)
+	ang (tap-macro < > left)
+	cur (tap-macro { } left)
+	squ (tap-macro [ ] left)
+	bra (tap-macro \( \) left)
 )
  
 (deflayer exper
-  esc   f1   f2   f3   f4   f5   f6   f7   f8        f10  f11  f12  ins  del
-  grv   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX        bspc nlck /    kp* kp-
-  tab   q    w    f    p    g    XX   XX   j    l    u    y    @num      ret  kp7  kp8  kp9 kp+
+  esc   f1   f2   f3   f4   f5   f6   f7   f8        f10  f11  f12  ins  del 
+  grv   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX        bspc nlck kp/    kp* kp-
+  tab   q    w    f    p    g    XX   XX   j    l    u    y    _      ret  kp7  kp8  kp9 kp+
   bspc  a    r    s    t    d    XX   XX   h    n    e    i    o              ret  kp5  kp6
-  lsft  @cz  z    x    c    v    b    XX   XX   b    k    /    m              @qwr @col @exp ret
+  lsft  @cz  z    x    c    v    _    _    _    @num b    k    m              @qwr @col @exp ret
   lctl       lmet lalt         spc              @ear rsft left up   down      0        kp.
 )
 
 (deflayer exper_arrows
   esc   f1   f2   f3   f4   f5   f6   f7   f8        f10  f11  f12  ins  del
-  grv   XX   XX   #    $    %    ^    &    XX   XX   XX   XX   XX        bspc nlck /    kp* kp-
-  tab   <    >    {    }    !    XX   XX   '    -    _    =    +         ret  kp7  kp8  kp9 kp+
-  bspc  [    ]    \(   \)   ?    XX   XX   "    left up   down rght           kp4  kp5  kp6
-  lsft  102d ;    :    ,    .    XX   XX   @    b    k    XX   m              @qwr @col @exp ret
+  grv   XX   XX   #    $    %    ^    &    XX   XX   XX   XX   XX        bspc nlck kp/    kp* kp-
+  tab   @ang @cur @squ @bra !    XX   XX   '    -    \_   =    &         ret  kp7  kp8  kp9 kp+
+  bspc  lsft lctl ret  esc  ?    XX   XX   "    left up   down rght           kp4  kp5  kp6
+  lsft  |    ;    :    ,    .    XX   XX   _    @    #    $   %              @qwr @col @exp ret
   lctl       lmet lalt        spc               XX   rsft left up   down      0       kp.
 )
 
 (deflayer numbers
-  esc   f1   f2   f3   f4   f5   f6   f7   f8        f10  f11  f12  ins  del
-  grv   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX        bspc nlck /    kp* kp-
-  tab   +    7    8    9    /    XX   XX   j    l    u    y    XX        ret  kp7  kp8  kp9 kp+
-  bspc  0    4    5    6    *    XX   XX   XX   7    8    9    0              kp4  kp5  kp6
-  lsft  102d XX   1    2    3    -   XX   XX   b    k    XX   m              @qwr @col @exp ret
+  esc   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  ins  del
+  grv   1    2    3    4    5    XX   XX   XX   XX   XX   bspc nlck           kp/       kp* kp-
+tab kp4 5    6    7    8    9    XX   XX   j    l    <    >    XX        ret  kp7  kp8  kp9 kp+
+  0     1    2    3    4    ^    XX   XX   XX   +    -    *    ^              kp4  kp5  kp6
+  lsft  \\   +    -    *    /    XX   XX   XX    XX   XX   XX   XX       @qwr @col @exp ret
   lctl       lmet lalt         spc               @ear rsft XX   up   down      0        kp.
 )
 
@@ -65,7 +69,7 @@
   grv   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX        bspc nlck /    kp* kp-
   tab   q    w    f    p    g    XX   XX   j    ů    ú    ý    @num      ret  kp7  kp8  kp9 kp+
   bspc  á    ř    š    ť    ď    XX   XX   h    ň    é    í    ó              ret  kp5  kp6
-  lsft  102d ž    x    č    v    b    XX   XX   b    ě    /    m              @qwr @col @exp ret
+  lsft  102d ž    x    č    v    b    XX   XX   b    ě    ě    m              @qwr @col @exp ret
   lctl       lmet lalt         spc              @ear rsft left up   down      0        kp.
 )
 
